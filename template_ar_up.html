@@ -1,0 +1,259 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>/* ============================================================
+   TAM CAPITAL — Colors & Type foundations
+   Source: TAM Mega Guidelines v01.1 (Nov 2025)
+   ------------------------------------------------------------
+   FONTS
+     • Latin  : Greycliff CF  — official, self-hosted (fonts/*.otf)
+     • Arabic : Bahij Janna   — official, self-hosted (fonts/Bahij_Janna-*.ttf)
+   ============================================================ */
+
+@font-face{font-family:'Bahij Janna';src:url("{{ASSET_BASE}}/ttf_1.ttf") format('truetype');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Bahij Janna';src:url("{{ASSET_BASE}}/ttf_2.ttf") format('truetype');font-weight:700;font-style:normal;font-display:swap}
+
+@font-face{font-family:'Greycliff CF';src:url("{{ASSET_BASE}}/otf_1.otf") format('opentype');font-weight:100;font-style:normal;font-display:swap}
+@font-face{font-family:'Greycliff CF';src:url("{{ASSET_BASE}}/otf_2.otf") format('opentype');font-weight:200;font-style:normal;font-display:swap}
+@font-face{font-family:'Greycliff CF';src:url("{{ASSET_BASE}}/otf_3.otf") format('opentype');font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:'Greycliff CF';src:url("{{ASSET_BASE}}/otf_4.otf") format('opentype');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Greycliff CF';src:url("{{ASSET_BASE}}/otf_5.otf") format('opentype');font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:'Greycliff CF';src:url("{{ASSET_BASE}}/otf_6.otf") format('opentype');font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:'Greycliff CF';src:url("{{ASSET_BASE}}/otf_7.otf") format('opentype');font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:'Greycliff CF';src:url("{{ASSET_BASE}}/otf_8.otf") format('opentype');font-weight:800;font-style:normal;font-display:swap}
+@font-face{font-family:'Greycliff CF';src:url("{{ASSET_BASE}}/otf_9.otf") format('opentype');font-weight:900;font-style:normal;font-display:swap}
+
+:root {
+  /* ---------- PRIMARY PALETTE ---------- */
+  --indigo:        #223062;  /* core brand / backgrounds */
+  --jade:          #0bad6b;  /* core accent / growth / CTA */
+  --platinum:      #e5e6e7;  /* light neutral surface */
+
+  /* ---------- SECONDARY PALETTE ---------- */
+  --purple:        #9d61ed;
+  --lavender:      #b7b0ed;
+  --azure:         #1b82ce;
+  --aqua-mint:     #74cec8;
+  --emerald-mint:  #15d180;
+
+  /* ---------- INDIGO SCALE (derived for UI depth) ---------- */
+  --indigo-900:    #11193a;  /* deepest bg */
+  --indigo-800:    #1a2547;  /* card on dark */
+  --indigo-700:    #223062;  /* = brand indigo */
+  --indigo-600:    #2d3f7d;
+  --indigo-500:    #3b5099;
+  --indigo-300:    #8893b8;  /* muted text on dark */
+  --indigo-200:    #b9c0d6;
+
+  /* ---------- JADE SCALE ---------- */
+  --jade-700:      #088a55;
+  --jade-600:      #0bad6b;  /* = brand jade */
+  --jade-500:      #15d180;  /* = emerald mint */
+  --jade-300:      #7fe3b6;
+  --jade-100:      #d8f6e8;
+
+  /* ---------- NEUTRALS ---------- */
+  --white:         #ffffff;
+  --platinum-100:  #f4f5f6;
+  --platinum-200:  #e5e6e7;  /* = platinum */
+  --platinum-300:  #cfd2d6;
+  --grey-500:      #8a8f99;
+  --ink:           #11151f;   /* near-black text on light */
+
+  /* ---------- SEMANTIC ---------- */
+  --positive:      #15d180;  /* gains / up */
+  --negative:      #e5484d;  /* losses / down (from app charts) */
+  --warning:       #f2a945;
+
+  /* ---------- SURFACES & TEXT (light) ---------- */
+  --bg:            var(--white);
+  --surface:       var(--platinum-100);
+  --surface-alt:   var(--platinum-200);
+  --fg1:           var(--indigo);        /* primary text */
+  --fg2:           #4a527a;              /* secondary text */
+  --fg3:           var(--grey-500);      /* muted text */
+  --line:          #dfe2e8;              /* hairline borders */
+  --accent:        var(--jade);
+  --on-accent:     var(--white);
+
+  /* ---------- SURFACES & TEXT (dark) ---------- */
+  --d-bg:          var(--indigo-900);
+  --d-surface:     var(--indigo-800);
+  --d-surface-alt: var(--indigo-700);
+  --d-fg1:         var(--white);
+  --d-fg2:         var(--indigo-200);
+  --d-fg3:         var(--indigo-300);
+  --d-line:        rgba(255,255,255,.10);
+
+  /* ---------- GRADIENTS ---------- */
+  /* Dark mode · primary–secondary blend */
+  --grad-dark-primary:   linear-gradient(135deg, #223062 0%, #1b82ce 100%); /* @kind color */
+  /* Dark mode · secondary–secondary blend */
+  --grad-dark-secondary: linear-gradient(135deg, #1b82ce 0%, #15d180 100%); /* @kind color */
+  --grad-purple:         linear-gradient(135deg, #9d61ed 0%, #b7b0ed 100%); /* @kind color */
+  /* Light mode · primary–secondary blend */
+  --grad-light:          linear-gradient(135deg, #e5e6e7 0%, #74cec8 100%); /* @kind color */
+  /* Brand hero: deep indigo with diagonal lift (as seen on app splash) */
+  --grad-hero:           linear-gradient(150deg, #11193a 0%, #223062 55%, #2d3f7d 100%); /* @kind color */
+  /* Jade CTA */
+  --grad-jade:           linear-gradient(135deg, #0bad6b 0%, #15d180 100%); /* @kind color */
+
+  /* ============================================================
+     TYPOGRAPHY
+     ============================================================ */
+  --font-display: 'Greycliff CF', system-ui, sans-serif;  /* official brand face */
+  --font-body:    'Greycliff CF', system-ui, sans-serif;
+  --font-arabic:  'Bahij Janna', system-ui, sans-serif;   /* official brand Arabic face */
+  --font-num:     'Greycliff CF', system-ui, sans-serif;
+
+  /* Type scale (1.25 major-third-ish, tuned) */
+  --t-display:  clamp(40px, 6vw, 72px); /* @kind font */
+  --t-h1:       44px; /* @kind font */
+  --t-h2:       32px; /* @kind font */
+  --t-h3:       24px; /* @kind font */
+  --t-title:    20px; /* @kind font */
+  --t-body:     16px; /* @kind font */
+  --t-small:    14px; /* @kind font */
+  --t-caption:  12px; /* @kind font */
+
+  --lh-tight:   1.05; /* @kind font */
+  --lh-snug:    1.2; /* @kind font */
+  --lh-normal:  1.5; /* @kind font */
+
+  --fw-regular: 400; /* @kind font */
+  --fw-medium:  500; /* @kind font */
+  --fw-semibold:600; /* @kind font */
+  --fw-bold:    700; /* @kind font */
+  --fw-extra:   800; /* @kind font */
+
+  /* ---------- RADII ---------- */
+  --r-sm:  8px;
+  --r-md:  14px;
+  --r-lg:  22px;
+  --r-xl:  32px;
+  --r-pill:999px;
+
+  /* ---------- SHADOWS ---------- */
+  --shadow-sm:  0 1px 2px rgba(17,25,58,.06), 0 1px 3px rgba(17,25,58,.08);
+  --shadow-md:  0 4px 12px rgba(17,25,58,.08), 0 2px 4px rgba(17,25,58,.06);
+  --shadow-lg:  0 18px 40px rgba(17,25,58,.14);
+  --shadow-jade:0 10px 26px rgba(11,173,107,.32);
+
+  /* ---------- SPACING (8pt base) ---------- */
+  --sp-1: 4px;  --sp-2: 8px;  --sp-3: 12px; --sp-4: 16px;
+  --sp-5: 24px; --sp-6: 32px; --sp-7: 48px; --sp-8: 64px; --sp-9: 96px;
+}
+
+/* ============================================================
+   SEMANTIC TYPE CLASSES
+   ============================================================ */
+.tam-display { font-family: var(--font-display); font-weight: var(--fw-extra);
+  font-size: var(--t-display); line-height: var(--lh-tight); letter-spacing: -.02em; }
+.tam-h1 { font-family: var(--font-display); font-weight: var(--fw-bold);
+  font-size: var(--t-h1); line-height: var(--lh-snug); letter-spacing: -.015em; }
+.tam-h2 { font-family: var(--font-display); font-weight: var(--fw-bold);
+  font-size: var(--t-h2); line-height: var(--lh-snug); letter-spacing: -.01em; }
+.tam-h3 { font-family: var(--font-display); font-weight: var(--fw-semibold);
+  font-size: var(--t-h3); line-height: var(--lh-snug); }
+.tam-title { font-family: var(--font-display); font-weight: var(--fw-semibold);
+  font-size: var(--t-title); line-height: var(--lh-snug); }
+.tam-body { font-family: var(--font-body); font-weight: var(--fw-regular);
+  font-size: var(--t-body); line-height: var(--lh-normal); }
+.tam-small { font-family: var(--font-body); font-weight: var(--fw-medium);
+  font-size: var(--t-small); line-height: var(--lh-normal); }
+.tam-caption { font-family: var(--font-body); font-weight: var(--fw-semibold);
+  font-size: var(--t-caption); line-height: 1.4; letter-spacing: .04em; text-transform: uppercase; }
+.tam-arabic { font-family: var(--font-arabic); direction: rtl; }
+</style>
+<style>body{margin:0;background:#080c1c}</style>
+</head><body style="margin:0">
+
+
+<div style="display:flex;flex-direction:column;align-items:center;gap:44px;padding:44px 0;font-family:'Greycliff CF',system-ui,sans-serif">
+
+
+<section data-screen-label="AR" style="position:relative;flex:0 0 auto;width:1080px;height:1350px;overflow:hidden;box-sizing:border-box;padding:64px 64px 56px;display:flex;flex-direction:column;direction:rtl;background:linear-gradient(208deg,#0f1636 0%,#1a2547 44%,#223062 76%,#2a3a72 100%);color:#fff;font-family:'Bahij Janna','Greycliff CF',system-ui,sans-serif">
+<div style="position:absolute;inset:0;background:rgba(255,255,255,.035);clip-path:polygon(0 0,0 46%,56% 0)"></div>
+<div style="position:absolute;inset:0;background:rgba(11,173,107,.07);clip-path:polygon(100% 100%,42% 100%,100% 52%)"></div>
+<div style="position:relative;display:flex;align-items:center;justify-content:space-between;gap:24px;height:52px;flex:0 0 auto">
+<img src="{{ASSET_BASE}}/logo_1.png" alt="تام المالية" style="height:46px;width:auto;display:block">
+<div style="display:inline-flex;align-items:center;height:48px;padding:0 24px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.13);font-size:23px;color:#c3cade;white-space:nowrap">{{DATE}}</div>
+</div>
+<div style="position: relative; margin-top: 30px; font-size: 30px; font-weight: 700; line-height: 1.5; color: #15d180; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 948px; height: 76px">النبض اليومي للسوق</div>
+<div style="position:relative;margin-top:14px">
+<div style="font-size:24px;line-height:1.5;color:#8893b8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">تاسي · المؤشر العام للسوق السعودي</div>
+
+<div style="display:flex;align-items:flex-end;gap:26px;margin-top:6px">
+<div style="direction:ltr;unicode-bidi:isolate;font-family:'Greycliff CF',system-ui,sans-serif;font-size:138px;font-weight:800;line-height:.9;letter-spacing:-.035em">{{TASI_CLOSE}}</div>
+<div style="display:inline-flex;align-items:center;gap:12px;height:60px;padding:0 24px;margin-bottom:12px;border-radius:999px;direction:ltr;unicode-bidi:isolate;font-family:'Greycliff CF',system-ui,sans-serif;font-size:34px;font-weight:700;line-height:1;white-space:nowrap;background:rgba(21,209,128,.16);border:1.5px solid rgba(21,209,128,.45);color:#15d180"><span style="width:0;height:0;flex:0 0 auto;border-left:.32em solid transparent;border-right:.32em solid transparent;border-bottom:.46em solid currentColor"></span><span>{{DELTA_PCT}}</span></div>
+</div>
+<div style="margin-top:14px;font-size:28px;line-height:1.5;color:#b9c0d6;white-space:nowrap;overflow:hidden;text-overflow:ellipsis"><span style="direction:ltr;unicode-bidi:isolate;font-family:'Greycliff CF',system-ui,sans-serif">{{DELTA_PTS}}</span> نقطة · {{STREAK_AR}}</div>
+
+
+</div>
+<div style="position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:26px">
+<div style="height:168px;padding:22px 24px;border-radius:22px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.10);display:flex;flex-direction:column;justify-content:space-between;overflow:hidden">
+<div style="font-size:22px;line-height:1.5;color:#8893b8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">قيمة التداولات</div>
+<div style="font-size:40px;font-weight:700;line-height:1.35;white-space:nowrap;overflow:hidden;text-overflow:ellipsis"><span style="direction:ltr;unicode-bidi:isolate;font-family:'Greycliff CF',system-ui,sans-serif">{{VAL_TRADED_NUM}}</span> مليار ريال</div>
+<div style="display:flex;align-items:center;gap:9px;font-size:22px;font-weight:700;color:#15d180;white-space:nowrap;overflow:hidden"><span style="width:0;height:0;flex:0 0 auto;border-left:.32em solid transparent;border-right:.32em solid transparent;border-bottom:.46em solid currentColor"></span><span style="overflow:hidden;text-overflow:ellipsis"><span style="direction:ltr;unicode-bidi:isolate;font-family:'Greycliff CF',system-ui,sans-serif">{{VAL_CHG}}</span> عن أمس</span></div>
+</div>
+<div style="height:168px;padding:22px 24px;border-radius:22px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.10);display:flex;flex-direction:column;justify-content:space-between;overflow:hidden">
+<div style="font-size:22px;line-height:1.5;color:#8893b8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">تاسي منذ بداية العام</div>
+<div style="font-size:40px;font-weight:700;line-height:1.35;white-space:nowrap;direction:ltr;unicode-bidi:isolate;font-family:'Greycliff CF',system-ui,sans-serif;text-align:right">{{YTD}}</div>
+<div style="display:flex;align-items:center;gap:9px;font-size:22px;font-weight:700;color:#15d180;white-space:nowrap;overflow:hidden"><span style="width:0;height:0;flex:0 0 auto;border-left:.32em solid transparent;border-right:.32em solid transparent;border-bottom:.46em solid currentColor"></span><span style="overflow:hidden;text-overflow:ellipsis">في المنطقة الإيجابية</span></div>
+</div>
+<div style="height:168px;padding:22px 24px;border-radius:22px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.10);display:flex;flex-direction:column;justify-content:space-between;overflow:hidden">
+<div style="font-size:22px;line-height:1.5;color:#8893b8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">نمو · السوق الموازي</div>
+<div style="font-size:40px;font-weight:700;line-height:1.35;white-space:nowrap;direction:ltr;unicode-bidi:isolate;font-family:'Greycliff CF',system-ui,sans-serif;text-align:right">{{NOMU}}</div>
+<div style="display:flex;align-items:center;gap:9px;font-size:22px;font-weight:700;color:#15d180;white-space:nowrap;overflow:hidden"><span style="width:0;height:0;flex:0 0 auto;border-left:.32em solid transparent;border-right:.32em solid transparent;border-bottom:.46em solid currentColor"></span><span style="overflow:hidden;text-overflow:ellipsis"><span style="direction:ltr;unicode-bidi:isolate;font-family:'Greycliff CF',system-ui,sans-serif">{{NOMU_CHG}}</span> اليوم</span></div>
+</div>
+</div>
+<div style="position:relative;margin-top:26px;height:260px;padding:22px 28px;border-radius:22px;background:rgba(27,130,206,.16);border:1px solid rgba(27,130,206,.44);display:flex;flex-direction:column;gap:10px;overflow:hidden">
+<div style="display:flex;align-items:center;gap:12px;font-size:22px;font-weight:700;line-height:1.5;color:#7cc2f2;white-space:nowrap"><span style="width:10px;height:10px;flex:0 0 auto;border-radius:999px;background:#1b82ce"></span>خبر اليوم</div>
+<div style="font-size:28px;line-height:1.45;color:#fff;text-wrap:pretty;overflow:hidden">{{STORY}}</div>
+</div>
+<div style="position:relative;display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:26px">
+<div style="height:270px;padding:20px 24px;border-radius:22px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.10);overflow:hidden">
+<div style="font-size:22px;font-weight:700;line-height:1.5;color:#8893b8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">أبرز الرابحين</div>
+<div style="display:flex;flex-direction:column;gap:12px;margin-top:12px">
+<div style="display:grid;grid-template-columns:1fr auto;align-items:center;gap:14px;height:48px">
+<div style="font-size:26px;line-height:1.5;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{G1_NAME}}<span style="direction:ltr;unicode-bidi:isolate;font-family:'Greycliff CF',system-ui,sans-serif;font-size:18px;font-weight:500;color:#8893b8;margin-right:14px">{{G1_CODE}}</span></div>
+<div style="display:flex;align-items:center;justify-content:flex-end;gap:8px;min-width:124px;direction:ltr;unicode-bidi:isolate;font-family:'Greycliff CF',system-ui,sans-serif;font-size:24px;font-weight:700;color:#15d180;white-space:nowrap"><span style="width:0;height:0;flex:0 0 auto;border-left:.32em solid transparent;border-right:.32em solid transparent;border-bottom:.46em solid currentColor"></span><span>{{G1_PCT}}</span></div>
+</div>
+<div style="display:grid;grid-template-columns:1fr auto;align-items:center;gap:14px;height:48px">
+<div style="font-size:26px;line-height:1.5;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{G2_NAME}}<span style="direction:ltr;unicode-bidi:isolate;font-family:'Greycliff CF',system-ui,sans-serif;font-size:18px;font-weight:500;color:#8893b8;margin-right:14px">{{G2_CODE}}</span></div>
+<div style="display:flex;align-items:center;justify-content:flex-end;gap:8px;min-width:124px;direction:ltr;unicode-bidi:isolate;font-family:'Greycliff CF',system-ui,sans-serif;font-size:24px;font-weight:700;color:#15d180;white-space:nowrap"><span style="width:0;height:0;flex:0 0 auto;border-left:.32em solid transparent;border-right:.32em solid transparent;border-bottom:.46em solid currentColor"></span><span>{{G2_PCT}}</span></div>
+</div>
+<div style="display:grid;grid-template-columns:1fr auto;align-items:center;gap:14px;height:48px">
+<div style="font-size:26px;line-height:1.5;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{G3_NAME}}<span style="direction:ltr;unicode-bidi:isolate;font-family:'Greycliff CF',system-ui,sans-serif;font-size:18px;font-weight:500;color:#8893b8;margin-right:14px">{{G3_CODE}}</span></div>
+<div style="display:flex;align-items:center;justify-content:flex-end;gap:8px;min-width:124px;direction:ltr;unicode-bidi:isolate;font-family:'Greycliff CF',system-ui,sans-serif;font-size:24px;font-weight:700;color:#15d180;white-space:nowrap"><span style="width:0;height:0;flex:0 0 auto;border-left:.32em solid transparent;border-right:.32em solid transparent;border-bottom:.46em solid currentColor"></span><span>{{G3_PCT}}</span></div>
+</div>
+</div>
+</div>
+<div style="height:270px;padding:20px 24px;border-radius:22px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.10);overflow:hidden">
+<div style="font-size:22px;font-weight:700;line-height:1.5;color:#8893b8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">أداء القطاعات</div>
+<div style="display:flex;flex-direction:column;gap:12px;margin-top:12px">
+<div style="display:grid;grid-template-columns:1fr auto;align-items:center;gap:14px;height:48px">
+<div style="font-size:26px;line-height:1.5;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{S1_NAME}}</div>
+<div style="display:flex;align-items:center;justify-content:flex-end;gap:8px;min-width:124px;direction:ltr;unicode-bidi:isolate;font-family:'Greycliff CF',system-ui,sans-serif;font-size:24px;font-weight:700;color:#15d180;white-space:nowrap"><span style="width:0;height:0;flex:0 0 auto;border-left:.32em solid transparent;border-right:.32em solid transparent;border-bottom:.46em solid currentColor"></span><span>{{S1_PCT}}</span></div>
+</div>
+<div style="display:grid;grid-template-columns:1fr auto;align-items:center;gap:14px;height:48px">
+<div style="font-size:26px;line-height:1.5;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{S2_NAME}}</div>
+<div style="display:flex;align-items:center;justify-content:flex-end;gap:8px;min-width:124px;direction:ltr;unicode-bidi:isolate;font-family:'Greycliff CF',system-ui,sans-serif;font-size:24px;font-weight:700;color:#15d180;white-space:nowrap"><span style="width:0;height:0;flex:0 0 auto;border-left:.32em solid transparent;border-right:.32em solid transparent;border-bottom:.46em solid currentColor"></span><span>{{S2_PCT}}</span></div>
+</div>
+<div style="display:grid;grid-template-columns:1fr auto;align-items:center;gap:14px;height:48px">
+<div style="font-size:26px;line-height:1.5;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{S3_NAME}}</div>
+<div style="display:flex;align-items:center;justify-content:flex-end;gap:8px;min-width:124px;direction:ltr;unicode-bidi:isolate;font-family:'Greycliff CF',system-ui,sans-serif;font-size:24px;font-weight:700;color:#ff6a6f;white-space:nowrap"><span style="width:0;height:0;flex:0 0 auto;border-left:.32em solid transparent;border-right:.32em solid transparent;border-top:.46em solid currentColor"></span><span>{{S3_PCT}}</span></div>
+</div>
+</div>
+</div>
+</div>
+<div style="position:relative;margin-top:auto;padding-top:22px;border-top:1px solid rgba(255,255,255,.13);display:flex;align-items:center;justify-content:space-between;gap:28px">
+<div style="display:flex;align-items:center;gap:13px;font-size:26px;font-weight:700;line-height:1.5;color:#fff;white-space:nowrap"><span style="width:34px;height:34px;flex:0 0 auto;border-radius:999px;background:#0bad6b;display:flex;align-items:center;justify-content:center"><span style="width:0;height:0;border-left:6px solid transparent;border-right:6px solid transparent;border-bottom:9px solid #fff"></span></span>تام تنمي اموالك</div>
+<div style="text-align:end;font-size:18px;line-height:1.5;color:#8893b8"><b style="display:block;font-weight:700;color:#b9c0d6">لا يُعد نصيحة استثمارية · مرخصة من هيئة السوق المالية</b><span style="direction:ltr;unicode-bidi:isolate;font-family:'Greycliff CF',system-ui,sans-serif">800 124 0557 · tamcapital.sa</span></div>
+</div>
+</section>
+
+
+
+
+</div>
+
+</body></html>

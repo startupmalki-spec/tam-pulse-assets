@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TAM Capital — Daily Market Report</title>
+</head>
+<body style="margin:0;padding:0;background:#f2f4f3;font-family:Segoe UI,Arial,sans-serif;">
+<!-- Preheader (hidden) -->
+<div style="display:none;max-height:0;overflow:hidden;">{{PREHEADER}}</div>
+
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f2f4f3;">
+<tr><td align="center" style="padding:24px 12px;">
+<table role="presentation" width="640" cellpadding="0" cellspacing="0" style="max-width:640px;width:100%;">
+
+  <!-- HEADER -->
+  <tr><td style="background:#0c1f1a;border-radius:14px 14px 0 0;padding:26px 32px;">
+    <table role="presentation" width="100%"><tr>
+      <td style="color:#ffffff;font-size:20px;font-weight:700;letter-spacing:2px;">TAM <span style="color:#37c78f;">CAPITAL</span></td>
+      <td align="right" style="color:#b8c6c0;font-size:13px;">{{DATE}}</td>
+    </tr></table>
+    <div style="color:#37c78f;font-size:13px;letter-spacing:3px;font-weight:600;margin-top:14px;">DAILY MARKET REPORT</div>
+    <table role="presentation" width="100%" style="margin-top:12px;"><tr>
+      <td>
+        <div style="color:#b8c6c0;font-size:12px;">TASI Close</div>
+        <div style="color:#ffffff;font-size:34px;font-weight:700;">{{TASI_CLOSE}}</div>
+        <div style="color:#37c78f;font-size:14px;font-weight:600;">{{DELTA_LINE}}</div>
+      </td>
+      <td align="right" style="vertical-align:bottom;">
+        <div style="color:#b8c6c0;font-size:12px;">Value Traded</div>
+        <div style="color:#ffffff;font-size:18px;font-weight:700;">SAR {{VAL_TRADED}} {{VAL_CHG_CHIP}}</div>
+        <div style="color:#b8c6c0;font-size:12px;margin-top:8px;">Nomu {{NOMU}} {{NOMU_CHG_CHIP}} · TASI YTD {{YTD_CHIP}}</div>
+      </td>
+    </tr></table>
+  </td></tr>
+
+  <!-- MARKET BRIEF -->
+  <tr><td style="background:#ffffff;padding:26px 32px 8px;">
+    <div style="font-size:15px;font-weight:700;color:#0c1f1a;letter-spacing:1px;">MARKET BRIEF</div>
+    <p style="font-size:14px;line-height:1.65;color:#3d4a45;margin:10px 0 0;">
+      {{MARKET_BRIEF}}</p>
+  </td></tr>
+
+  <!-- STORY OF THE DAY -->
+  <tr><td style="background:#ffffff;padding:18px 32px;">
+    <table role="presentation" width="100%" style="background:#eef6fb;border-left:4px solid #4fa3e0;border-radius:8px;"><tr>
+      <td style="padding:16px 20px;">
+        <div style="font-size:12px;font-weight:700;color:#2b6f9e;letter-spacing:2px;">STORY OF THE DAY</div>
+        <div style="font-size:14px;line-height:1.6;color:#1d2a33;margin-top:6px;">{{STORY_HTML}}</div>
+      </td>
+    </tr></table>
+  </td></tr>
+
+  <!-- MOVERS -->
+  <tr><td style="background:#ffffff;padding:8px 32px 4px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
+      <td width="48%" style="vertical-align:top;">
+        <div style="font-size:13px;font-weight:700;color:#0c1f1a;letter-spacing:1px;padding-bottom:8px;">TOP GAINERS</div>
+        <table role="presentation" width="100%" style="font-size:13px;color:#3d4a45;">
+          {{GAINERS_ROWS}}</table>
+      </td>
+      <td width="4%"></td>
+      <td width="48%" style="vertical-align:top;">
+        <div style="font-size:13px;font-weight:700;color:#0c1f1a;letter-spacing:1px;padding-bottom:8px;">TOP LAGGARDS</div>
+        <table role="presentation" width="100%" style="font-size:13px;color:#3d4a45;">
+          {{LAGGARDS_ROWS}}</table>
+      </td>
+    </tr></table>
+  </td></tr>
+
+  <!-- EARNINGS -->
+  <tr><td style="background:#ffffff;padding:22px 32px 6px;">
+    <div style="font-size:13px;font-weight:700;color:#0c1f1a;letter-spacing:1px;">EARNINGS HIGHLIGHTS — {{QUARTER}}</div>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="font-size:13px;color:#3d4a45;margin-top:8px;">
+      <tr style="color:#8a948f;font-size:11px;">
+        <td style="padding:6px 0;">COMPANY</td><td align="right">NET PROFIT</td><td align="right">YoY</td><td align="right">VS CONSENSUS</td>
+      </tr>
+      {{EARNINGS_ROWS}}</table>
+    <div style="font-size:11px;color:#8a948f;margin-top:6px;">Full results table available on request · Source: Tadawul, Bloomberg</div>
+  </td></tr>
+
+  <!-- TODAY -->
+  <tr><td style="background:#ffffff;padding:20px 32px 6px;">
+    <div style="font-size:13px;font-weight:700;color:#0c1f1a;letter-spacing:1px;">ON THE CALENDAR TODAY</div>
+    <table role="presentation" width="100%" style="font-size:13px;color:#3d4a45;margin-top:8px;">
+      {{CALENDAR_ROWS}}</table>
+  </td></tr>
+
+  <!-- GLOBAL STRIP -->
+  <tr><td style="background:#ffffff;padding:20px 32px 26px;">
+    <table role="presentation" width="100%" style="background:#f6f8f7;border-radius:10px;"><tr>
+      <td style="padding:14px 18px;font-size:12.5px;color:#3d4a45;">
+        <b style="color:#0c1f1a;">Global check:</b>
+        {{GLOBAL_STRIP}}
+      </td>
+    </tr></table>
+  </td></tr>
+
+  <!-- CTA -->
+  <tr><td style="background:#0c1f1a;padding:22px 32px;border-radius:0 0 14px 14px;">
+    <table role="presentation" width="100%"><tr>
+      <td style="color:#ffffff;font-size:14px;">
+        <b style="color:#37c78f;">30-second version on WhatsApp.</b><br>
+        <span style="color:#b8c6c0;font-size:12.5px;">Get the daily market pulse card every morning.</span>
+      </td>
+      <td align="right">
+        <a href="{{whatsapp_opt_in_link}}" style="background:#37c78f;color:#0c1f1a;font-size:13px;font-weight:700;text-decoration:none;padding:10px 22px;border-radius:999px;display:inline-block;">Join the channel</a>
+      </td>
+    </tr></table>
+    <div style="border-top:1px solid rgba(255,255,255,0.12);margin-top:18px;padding-top:14px;color:#7d8f88;font-size:10.5px;line-height:1.6;">
+      This material is provided for information purposes only and does not constitute investment advice or a recommendation to buy or sell any security. Market data sourced from Tadawul, Bloomberg and bank research providers. TAM Capital is licensed by the Capital Market Authority of Saudi Arabia. <a href="{{unsubscribe_link}}" style="color:#7d8f88;">Unsubscribe</a>
+    </div>
+  </td></tr>
+
+</table>
+</td></tr>
+</table>
+</body>
+</html>

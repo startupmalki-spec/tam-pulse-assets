@@ -1,0 +1,40 @@
+name: Render report PDF
+
+on:
+  push:
+    paths:
+      - "daily/report.html"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: render
+  cancel-in-progress: false
+
+jobs:
+  pdf:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Playwright
+        run: |
+          npm i playwright
+          npx playwright install --with-deps chromium
+
+      - name: Render PDF
+        run: node render.js
+
+      - name: Commit PDF
+        run: |
+          git config user.name "tam-render-bot"
+          git config user.email "actions@github.com"
+          git add daily/report.pdf
+          git commit -m "render: daily report PDF [skip ci]" || echo "nothing to commit"
+          git push

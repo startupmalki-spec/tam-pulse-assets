@@ -1,0 +1,904 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>/* ============================================================
+   TAM CAPITAL — Colors & Type foundations
+   Source: TAM Mega Guidelines v01.1 (Nov 2025)
+   ------------------------------------------------------------
+   FONTS
+     • Latin  : Greycliff CF  — official, self-hosted (fonts/*.otf)
+     • Arabic : Bahij Janna   — official, self-hosted (fonts/Bahij_Janna-*.ttf)
+   ============================================================ */
+
+@font-face{font-family:'Bahij Janna';src:url("{{ASSET_BASE}}/ttf_1.ttf") format('truetype');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Bahij Janna';src:url("{{ASSET_BASE}}/ttf_2.ttf") format('truetype');font-weight:700;font-style:normal;font-display:swap}
+
+@font-face{font-family:'Greycliff CF';src:url("{{ASSET_BASE}}/otf_1.otf") format('opentype');font-weight:100;font-style:normal;font-display:swap}
+@font-face{font-family:'Greycliff CF';src:url("{{ASSET_BASE}}/otf_2.otf") format('opentype');font-weight:200;font-style:normal;font-display:swap}
+@font-face{font-family:'Greycliff CF';src:url("{{ASSET_BASE}}/otf_3.otf") format('opentype');font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:'Greycliff CF';src:url("{{ASSET_BASE}}/otf_4.otf") format('opentype');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Greycliff CF';src:url("{{ASSET_BASE}}/otf_5.otf") format('opentype');font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:'Greycliff CF';src:url("{{ASSET_BASE}}/otf_6.otf") format('opentype');font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:'Greycliff CF';src:url("{{ASSET_BASE}}/otf_7.otf") format('opentype');font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:'Greycliff CF';src:url("{{ASSET_BASE}}/otf_8.otf") format('opentype');font-weight:800;font-style:normal;font-display:swap}
+@font-face{font-family:'Greycliff CF';src:url("{{ASSET_BASE}}/otf_9.otf") format('opentype');font-weight:900;font-style:normal;font-display:swap}
+
+:root {
+  /* ---------- PRIMARY PALETTE ---------- */
+  --indigo:        #223062;  /* core brand / backgrounds */
+  --jade:          #0bad6b;  /* core accent / growth / CTA */
+  --platinum:      #e5e6e7;  /* light neutral surface */
+
+  /* ---------- SECONDARY PALETTE ---------- */
+  --purple:        #9d61ed;
+  --lavender:      #b7b0ed;
+  --azure:         #1b82ce;
+  --aqua-mint:     #74cec8;
+  --emerald-mint:  #15d180;
+
+  /* ---------- INDIGO SCALE (derived for UI depth) ---------- */
+  --indigo-900:    #11193a;  /* deepest bg */
+  --indigo-800:    #1a2547;  /* card on dark */
+  --indigo-700:    #223062;  /* = brand indigo */
+  --indigo-600:    #2d3f7d;
+  --indigo-500:    #3b5099;
+  --indigo-300:    #8893b8;  /* muted text on dark */
+  --indigo-200:    #b9c0d6;
+
+  /* ---------- JADE SCALE ---------- */
+  --jade-700:      #088a55;
+  --jade-600:      #0bad6b;  /* = brand jade */
+  --jade-500:      #15d180;  /* = emerald mint */
+  --jade-300:      #7fe3b6;
+  --jade-100:      #d8f6e8;
+
+  /* ---------- NEUTRALS ---------- */
+  --white:         #ffffff;
+  --platinum-100:  #f4f5f6;
+  --platinum-200:  #e5e6e7;  /* = platinum */
+  --platinum-300:  #cfd2d6;
+  --grey-500:      #8a8f99;
+  --ink:           #11151f;   /* near-black text on light */
+
+  /* ---------- SEMANTIC ---------- */
+  --positive:      #15d180;  /* gains / up */
+  --negative:      #e5484d;  /* losses / down (from app charts) */
+  --warning:       #f2a945;
+
+  /* ---------- SURFACES & TEXT (light) ---------- */
+  --bg:            var(--white);
+  --surface:       var(--platinum-100);
+  --surface-alt:   var(--platinum-200);
+  --fg1:           var(--indigo);        /* primary text */
+  --fg2:           #4a527a;              /* secondary text */
+  --fg3:           var(--grey-500);      /* muted text */
+  --line:          #dfe2e8;              /* hairline borders */
+  --accent:        var(--jade);
+  --on-accent:     var(--white);
+
+  /* ---------- SURFACES & TEXT (dark) ---------- */
+  --d-bg:          var(--indigo-900);
+  --d-surface:     var(--indigo-800);
+  --d-surface-alt: var(--indigo-700);
+  --d-fg1:         var(--white);
+  --d-fg2:         var(--indigo-200);
+  --d-fg3:         var(--indigo-300);
+  --d-line:        rgba(255,255,255,.10);
+
+  /* ---------- GRADIENTS ---------- */
+  /* Dark mode · primary–secondary blend */
+  --grad-dark-primary:   linear-gradient(135deg, #223062 0%, #1b82ce 100%); /* @kind color */
+  /* Dark mode · secondary–secondary blend */
+  --grad-dark-secondary: linear-gradient(135deg, #1b82ce 0%, #15d180 100%); /* @kind color */
+  --grad-purple:         linear-gradient(135deg, #9d61ed 0%, #b7b0ed 100%); /* @kind color */
+  /* Light mode · primary–secondary blend */
+  --grad-light:          linear-gradient(135deg, #e5e6e7 0%, #74cec8 100%); /* @kind color */
+  /* Brand hero: deep indigo with diagonal lift (as seen on app splash) */
+  --grad-hero:           linear-gradient(150deg, #11193a 0%, #223062 55%, #2d3f7d 100%); /* @kind color */
+  /* Jade CTA */
+  --grad-jade:           linear-gradient(135deg, #0bad6b 0%, #15d180 100%); /* @kind color */
+
+  /* ============================================================
+     TYPOGRAPHY
+     ============================================================ */
+  --font-display: 'Greycliff CF', system-ui, sans-serif;  /* official brand face */
+  --font-body:    'Greycliff CF', system-ui, sans-serif;
+  --font-arabic:  'Bahij Janna', system-ui, sans-serif;   /* official brand Arabic face */
+  --font-num:     'Greycliff CF', system-ui, sans-serif;
+
+  /* Type scale (1.25 major-third-ish, tuned) */
+  --t-display:  clamp(40px, 6vw, 72px); /* @kind font */
+  --t-h1:       44px; /* @kind font */
+  --t-h2:       32px; /* @kind font */
+  --t-h3:       24px; /* @kind font */
+  --t-title:    20px; /* @kind font */
+  --t-body:     16px; /* @kind font */
+  --t-small:    14px; /* @kind font */
+  --t-caption:  12px; /* @kind font */
+
+  --lh-tight:   1.05; /* @kind font */
+  --lh-snug:    1.2; /* @kind font */
+  --lh-normal:  1.5; /* @kind font */
+
+  --fw-regular: 400; /* @kind font */
+  --fw-medium:  500; /* @kind font */
+  --fw-semibold:600; /* @kind font */
+  --fw-bold:    700; /* @kind font */
+  --fw-extra:   800; /* @kind font */
+
+  /* ---------- RADII ---------- */
+  --r-sm:  8px;
+  --r-md:  14px;
+  --r-lg:  22px;
+  --r-xl:  32px;
+  --r-pill:999px;
+
+  /* ---------- SHADOWS ---------- */
+  --shadow-sm:  0 1px 2px rgba(17,25,58,.06), 0 1px 3px rgba(17,25,58,.08);
+  --shadow-md:  0 4px 12px rgba(17,25,58,.08), 0 2px 4px rgba(17,25,58,.06);
+  --shadow-lg:  0 18px 40px rgba(17,25,58,.14);
+  --shadow-jade:0 10px 26px rgba(11,173,107,.32);
+
+  /* ---------- SPACING (8pt base) ---------- */
+  --sp-1: 4px;  --sp-2: 8px;  --sp-3: 12px; --sp-4: 16px;
+  --sp-5: 24px; --sp-6: 32px; --sp-7: 48px; --sp-8: 64px; --sp-9: 96px;
+}
+
+/* ============================================================
+   SEMANTIC TYPE CLASSES
+   ============================================================ */
+.tam-display { font-family: var(--font-display); font-weight: var(--fw-extra);
+  font-size: var(--t-display); line-height: var(--lh-tight); letter-spacing: -.02em; }
+.tam-h1 { font-family: var(--font-display); font-weight: var(--fw-bold);
+  font-size: var(--t-h1); line-height: var(--lh-snug); letter-spacing: -.015em; }
+.tam-h2 { font-family: var(--font-display); font-weight: var(--fw-bold);
+  font-size: var(--t-h2); line-height: var(--lh-snug); letter-spacing: -.01em; }
+.tam-h3 { font-family: var(--font-display); font-weight: var(--fw-semibold);
+  font-size: var(--t-h3); line-height: var(--lh-snug); }
+.tam-title { font-family: var(--font-display); font-weight: var(--fw-semibold);
+  font-size: var(--t-title); line-height: var(--lh-snug); }
+.tam-body { font-family: var(--font-body); font-weight: var(--fw-regular);
+  font-size: var(--t-body); line-height: var(--lh-normal); }
+.tam-small { font-family: var(--font-body); font-weight: var(--fw-medium);
+  font-size: var(--t-small); line-height: var(--lh-normal); }
+.tam-caption { font-family: var(--font-body); font-weight: var(--fw-semibold);
+  font-size: var(--t-caption); line-height: 1.4; letter-spacing: .04em; text-transform: uppercase; }
+.tam-arabic { font-family: var(--font-arabic); direction: rtl; }
+</style>
+
+
+
+<style>body{margin:0}a{color:#0bad6b;text-decoration:none}a:hover{color:#088a55;text-decoration:underline}</style>
+</head><body style="margin:0">
+
+<doc-page size="a4">
+
+<section class="page" data-screen-label="Page 1" style="box-sizing:border-box;padding:30px 34px 22px;display:flex;flex-direction:column;gap:15px;background:#fff;color:#11151f;font-family:'Greycliff CF',system-ui,sans-serif;font-size:11px;line-height:1.45">
+
+
+<div style="position:relative;margin:-30px -34px 0;padding:24px 34px 20px;overflow:hidden;border-bottom:4px solid #0bad6b;background:linear-gradient(150deg,#11193a 0%,#223062 55%,#2d3f7d 100%);color:#fff">
+<div style="position:absolute;inset:0;background:rgba(255,255,255,.04);clip-path:polygon(100% 0,100% 58%,52% 0)"></div>
+<div style="position:relative;display:flex;align-items:flex-start;justify-content:space-between;gap:24px">
+<div>
+<img src="{{ASSET_BASE}}/logo_2.png" alt="TAM Capital" style="height:24px;width:auto;display:block">
+<div style="margin-top:15px;font-size:27px;font-weight:800;letter-spacing:-.02em;line-height:1.08">Daily Market Watch</div>
+<div style="margin-top:7px;font-size:9.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#8893b8">TAM Research</div>
+</div>
+<div style="display:flex;flex-direction:column;align-items:flex-end;justify-content:space-between;align-self:stretch;gap:20px">
+<div data-field="report.date" style="display:inline-flex;align-items:center;height:26px;padding:0 14px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);font-size:9.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:#c3cade;white-space:nowrap">{{DATE_LONG}}</div>
+<div style="font-size:10px;font-weight:500;color:#8893b8">Grow your wealth with TAM</div>
+</div>
+</div>
+</div>
+
+
+
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px">
+<div style="padding:16px 18px;border-radius:14px;background:linear-gradient(140deg,#223062 0%,#2d3f7d 100%);color:#fff;display:flex;flex-direction:column;gap:8px">
+<div style="font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#b9c0d6">Main market · TASI</div>
+<div style="display:flex;align-items:flex-end;gap:12px">
+<div data-field="tasi.close" style="font-size:30px;font-weight:800;line-height:.95;letter-spacing:-.03em;font-variant-numeric:tabular-nums">{{TASI_CLOSE}}</div>
+<div data-field="tasi.chgPct" style="display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 11px;margin-bottom:3px;border-radius:999px;background:rgba(21,209,128,.18);border:1px solid rgba(21,209,128,.5);font-size:13px;font-weight:700;color:#15d180;white-space:nowrap"><span style="width:0;height:0;border-left:.3em solid transparent;border-right:.3em solid transparent;border-bottom:.44em solid currentColor"></span>{{TASI_DOD}}</div>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:6px 20px;font-size:10px;color:#b9c0d6">
+<span><b data-field="tasi.chgPts" style="font-weight:700;color:#fff">{{TASI_PTS}}</b> pts</span>
+<span>Value traded <b data-field="tasi.value" style="font-weight:700;color:#fff">SAR 6.3 bn</b></span>
+<span>YTD <b data-field="tasi.ytd" style="font-weight:700;color:#15d180">{{TASI_YTD}}</b></span>
+</div>
+</div>
+<div style="padding:16px 18px;border-radius:14px;background:linear-gradient(140deg,#7b3fd4 0%,#a374e8 130%);color:#fff;display:flex;flex-direction:column;gap:8px">
+<div style="font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#ece2fb">Parallel market · Nomu</div>
+<div style="display:flex;align-items:flex-end;gap:12px">
+<div data-field="nomu.close" style="font-size:30px;font-weight:800;line-height:.95;letter-spacing:-.03em;color:#fff;font-variant-numeric:tabular-nums">{{NOMU_CLOSE}}</div>
+<div data-field="nomu.chgPct" style="display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 11px;margin-bottom:3px;border-radius:999px;background:#d8f6e8;border:1px solid #7fe3b6;font-size:13px;font-weight:700;color:#088a55;white-space:nowrap"><span style="width:0;height:0;border-left:.3em solid transparent;border-right:.3em solid transparent;border-bottom:.44em solid currentColor"></span>{{NOMU_DOD}}</div>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:6px 20px;font-size:10px;color:#ece2fb">
+<span>Value traded <b data-field="nomu.value" style="font-weight:700;color:#fff">SAR 11.7 mn</b></span>
+<span>YTD <b data-field="nomu.ytd" style="font-weight:700;color:#ffd166">{{NOMU_YTD}}</b></span>
+</div>
+</div>
+<div style="padding:16px 18px;border-radius:14px;background:linear-gradient(140deg,#1b82ce 0%,#74cec8 130%);color:#fff;display:flex;flex-direction:column;gap:8px">
+<div style="font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#e2f1fb">Value traded · TASI</div>
+<div style="display:flex;align-items:flex-end;gap:10px">
+<div data-field="tasi.valueMn" style="font-size:30px;font-weight:800;line-height:.95;letter-spacing:-.03em;font-variant-numeric:tabular-nums">{{VAL_TRADED_MN}}</div>
+<div style="margin-bottom:4px;font-size:10px;font-weight:600;color:#e2f1fb">SAR mn</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:5px;font-size:9px;font-weight:600;color:#e2f1fb">
+<div style="display:grid;grid-template-columns:52px 1fr;gap:8px;align-items:center"><span>3 Aug</span><div style="height:9px;border-radius:2px;background:rgba(255,255,255,.9)"></div></div>
+<div style="display:grid;grid-template-columns:52px 1fr;gap:8px;align-items:center"><span>Prior</span><div style="height:9px;width:59%;border-radius:2px;background:rgba(255,255,255,.38)"></div></div>
+<div style="margin-top:1px;font-weight:700;color:#fff">+68.6% on the previous session</div>
+</div>
+</div>
+</div>
+
+<div>
+<div style="display:flex;align-items:center;gap:10px;margin-bottom:7px">
+<span style="display:inline-flex;align-items:center;height:20px;padding:0 10px;border-radius:5px;background:#0bad6b;font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff;white-space:nowrap">Index performance</span>
+<span style="flex:1;height:3px;border-radius:2px;background:linear-gradient(90deg,#eaf7f1,#f7f8f9)"></span>
+</div>
+<sc-raw-table style="width:100%;border-collapse:collapse;font-size:10.5px;font-variant-numeric:tabular-nums">
+<sc-raw-thead>
+<sc-raw-tr>
+<sc-raw-th style="text-align:left;padding:6px 9px;background:#223062;font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#ccd4ea;white-space:nowrap">Index</sc-raw-th>
+<sc-raw-th style="text-align:right;padding:6px 9px;background:#223062;font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#ccd4ea;white-space:nowrap">Last close</sc-raw-th>
+<sc-raw-th style="text-align:right;padding:6px 9px;background:#223062;font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#ccd4ea;white-space:nowrap">DoD</sc-raw-th>
+<sc-raw-th style="text-align:right;padding:6px 9px;background:#223062;font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#ccd4ea;white-space:nowrap">YTD</sc-raw-th>
+<sc-raw-th style="text-align:right;padding:6px 9px;background:#223062;font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#ccd4ea;white-space:nowrap">1Y</sc-raw-th>
+<sc-raw-th style="text-align:right;padding:6px 9px;background:#223062;font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#ccd4ea;white-space:nowrap">Volume (mn)</sc-raw-th>
+<sc-raw-th style="text-align:right;padding:6px 9px;background:#223062;font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#ccd4ea;white-space:nowrap">Value (SAR mn)</sc-raw-th>
+</sc-raw-tr>
+</sc-raw-thead>
+<sc-raw-tbody>
+<sc-raw-tr>
+<sc-raw-td style="padding:6px 9px;border-bottom:1px solid #eef0f3;font-weight:600;white-space:nowrap">Main Market — TASI</sc-raw-td>
+<sc-raw-td style="padding:6px 9px;border-bottom:1px solid #eef0f3;text-align:right;white-space:nowrap">{{TASI_CLOSE}}</sc-raw-td>
+<sc-raw-td style="padding:6px 9px;border-bottom:1px solid #eef0f3;text-align:right;font-weight:700;color:#088a55;background:#eaf7f1;white-space:nowrap">{{TASI_DOD}}</sc-raw-td>
+<sc-raw-td style="padding:6px 9px;border-bottom:1px solid #eef0f3;text-align:right;font-weight:700;color:#088a55;background:#eaf7f1;white-space:nowrap">{{TASI_YTD}}</sc-raw-td>
+<sc-raw-td style="padding:6px 9px;border-bottom:1px solid #eef0f3;text-align:right;font-weight:700;color:#c9333a;background:#fdeef0;white-space:nowrap">{{TASI_1Y}}</sc-raw-td>
+<sc-raw-td style="padding:6px 9px;border-bottom:1px solid #eef0f3;text-align:right;white-space:nowrap">{{TASI_VOL}}</sc-raw-td>
+<sc-raw-td style="padding:6px 9px;border-bottom:1px solid #eef0f3;text-align:right;white-space:nowrap">{{VAL_TRADED_MN}}</sc-raw-td>
+</sc-raw-tr>
+<sc-raw-tr>
+<sc-raw-td style="padding:6px 9px;border-bottom:1px solid #eef0f3;font-weight:600;white-space:nowrap">Parallel Market — Nomu</sc-raw-td>
+<sc-raw-td style="padding:6px 9px;border-bottom:1px solid #eef0f3;text-align:right;white-space:nowrap">{{NOMU_CLOSE}}</sc-raw-td>
+<sc-raw-td style="padding:6px 9px;border-bottom:1px solid #eef0f3;text-align:right;font-weight:700;color:#088a55;background:#eaf7f1;white-space:nowrap">{{NOMU_DOD}}</sc-raw-td>
+<sc-raw-td style="padding:6px 9px;border-bottom:1px solid #eef0f3;text-align:right;font-weight:700;color:#c9333a;background:#fdeef0;white-space:nowrap">{{NOMU_YTD}}</sc-raw-td>
+<sc-raw-td style="padding:6px 9px;border-bottom:1px solid #eef0f3;text-align:right;color:#8a8f99;white-space:nowrap">—</sc-raw-td>
+<sc-raw-td style="padding:6px 9px;border-bottom:1px solid #eef0f3;text-align:right;color:#8a8f99;white-space:nowrap">—</sc-raw-td>
+<sc-raw-td style="padding:6px 9px;border-bottom:1px solid #eef0f3;text-align:right;white-space:nowrap">{{NOMU_VAL_MN}}</sc-raw-td>
+</sc-raw-tr>
+</sc-raw-tbody>
+</sc-raw-table>
+</div>
+
+
+<div>
+<div style="display:flex;align-items:center;gap:10px;margin-bottom:7px">
+<span style="display:inline-flex;align-items:center;height:20px;padding:0 10px;border-radius:5px;background:#0bad6b;font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff;white-space:nowrap">TASI performance</span>
+<span style="flex:1;height:3px;border-radius:2px;background:linear-gradient(90deg,#eaf7f1,#f7f8f9)"></span>
+</div>
+<image-slot id="dmw-tasi-perf" shape="rounded" radius="12" fit="contain" placeholder="Drop TASI 12-month performance chart export" style="width:100%;height:172px"></image-slot>
+</div>
+
+
+<div>
+<div style="display:flex;align-items:center;gap:10px;margin-bottom:9px">
+<span style="display:inline-flex;align-items:center;height:20px;padding:0 10px;border-radius:5px;background:#0bad6b;font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff;white-space:nowrap">Markets performance &amp; news</span>
+<span style="flex:1;height:3px;border-radius:2px;background:linear-gradient(90deg,#eaf7f1,#f7f8f9)"></span>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px">
+{{NEWS_ITEMS}}
+
+
+<div style="display:grid;grid-template-columns:92px 1fr;gap:14px;align-items:start">
+<div style="padding-top:1px"><span style="display:inline-flex;align-items:center;height:17px;padding:0 8px;border-radius:4px;background:#e7f6f5;border:1px solid #2a9d9633;font-size:8px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#1f7d77;white-space:nowrap">Consumer</span></div>
+<div style="font-size:10.5px;line-height:1.6;text-wrap:pretty">Around 95.3% of online purchases in Saudi Arabia were made through local retailers, against 55.4% through international shopping websites. Clothing and footwear were the most purchased categories at 87.7%, followed by cosmetics at 46.2%, groceries at 41.8%, computers and smartphones at 36.9% and travel services at 36.5%. <span style="color:#8a8f99">(Zawya)</span></div>
+</div>
+</div>
+</div>
+
+<div style="margin-top:auto;padding-top:9px;border-top:2px solid #eaf7f1;display:flex;align-items:center;justify-content:space-between;gap:16px;font-size:8.5px;color:#8a8f99">
+<span style="font-weight:600;color:#4a527a">TAM Capital · Grow your wealth with TAM</span>
+<span>For information only · not investment advice</span>
+<span style="font-weight:700;color:#088a55">1 / 6</span>
+</div>
+
+</section>
+
+<section class="page" data-screen-label="Page 2" style="box-sizing:border-box;padding:30px 34px 22px;display:flex;flex-direction:column;gap:13px;background:#fff;color:#11151f;font-family:'Greycliff CF',system-ui,sans-serif;font-size:11px;line-height:1.45">
+
+<div style="display:flex;align-items:center;justify-content:space-between;gap:16px;margin:-30px -34px 0;padding:11px 34px;border-bottom:2px solid #1b82ce">
+<div style="display:flex;align-items:center;gap:9px">
+<img src="{{ASSET_BASE}}/rpt_1.png" alt="" style="height:14px;width:auto;display:block">
+<span style="font-size:9.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:#223062;white-space:nowrap">Daily Market Watch</span>
+<span style="width:1px;height:10px;background:#cfd2d6"></span>
+<span style="font-size:9.5px;font-weight:500;color:#8a8f99;white-space:nowrap">{{DATE}}</span>
+</div>
+<span style="display:inline-flex;align-items:center;height:18px;padding:0 9px;border-radius:4px;background:#e9f3fb;font-size:8.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#16669f;white-space:nowrap">Results &amp; calendars</span>
+</div>
+
+<div>
+<div style="display:flex;align-items:center;gap:10px;margin-bottom:7px">
+<span style="display:inline-flex;align-items:center;height:18px;padding:0 9px;border-radius:4px;background:#1b82ce;font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff;white-space:nowrap">Result announcements</span>
+<span style="flex:1;height:3px;border-radius:2px;background:linear-gradient(90deg,#e9f3fb,#f7f8f9)"></span>
+<span style="font-size:9px;font-weight:600;color:#8a8f99;white-space:nowrap">2Q26 · SAR mn</span>
+</div>
+<sc-raw-table style="width:100%;border-collapse:collapse;font-size:9.5px;font-variant-numeric:tabular-nums;white-space:nowrap">
+<sc-raw-thead>
+<sc-raw-tr style="text-align:right;background:#223062;font-size:8.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#ccd4ea">
+<sc-raw-th style="padding:4.5px 7px;text-align:left">Company</sc-raw-th>
+<sc-raw-th style="padding:4.5px 7px;text-align:left">TASI</sc-raw-th>
+<sc-raw-th style="padding:4.5px 7px;text-align:left">Bloomberg</sc-raw-th>
+<sc-raw-th style="padding:4.5px 7px">2Q26</sc-raw-th>
+<sc-raw-th style="padding:4.5px 7px">2Q25</sc-raw-th>
+<sc-raw-th style="padding:4.5px 7px">Δ SAR mn</sc-raw-th>
+<sc-raw-th style="padding:4.5px 7px">Δ %</sc-raw-th>
+<sc-raw-th style="padding:4.5px 7px">Consensus</sc-raw-th>
+<sc-raw-th style="padding:4.5px 7px">Variance %</sc-raw-th>
+</sc-raw-tr>
+</sc-raw-thead>
+<sc-raw-tbody>
+{{RESULTS_ROWS}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</sc-raw-tbody>
+</sc-raw-table>
+<div style="margin-top:5px;font-size:8px;color:#8a8f99">* For 1H26 &nbsp;·&nbsp; Source: Tadawul, Bloomberg</div>
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start">
+<div>
+<div style="display:flex;align-items:center;gap:10px;margin-bottom:7px">
+<span style="display:inline-flex;align-items:center;height:18px;padding:0 9px;border-radius:4px;background:#1b82ce;font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff;white-space:nowrap">Economic calendar</span>
+<span style="flex:1;height:3px;border-radius:2px;background:linear-gradient(90deg,#e9f3fb,#f7f8f9)"></span>
+</div>
+<sc-raw-table style="width:100%;border-collapse:collapse;font-size:9.5px;font-variant-numeric:tabular-nums;white-space:nowrap">
+<sc-raw-thead>
+<sc-raw-tr style="text-align:right;background:#223062;font-size:8.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#ccd4ea">
+<sc-raw-th style="padding:4.5px 7px;text-align:left">Date</sc-raw-th>
+<sc-raw-th style="padding:4.5px 7px;text-align:left">Event</sc-raw-th>
+<sc-raw-th style="padding:4.5px 7px">Prior</sc-raw-th>
+<sc-raw-th style="padding:4.5px 7px">Estimate</sc-raw-th>
+</sc-raw-tr>
+</sc-raw-thead>
+<sc-raw-tbody>
+{{ECON_ROWS}}
+
+</sc-raw-tbody>
+</sc-raw-table>
+<div style="margin-top:5px;font-size:8px;color:#8a8f99">Source: Argaam, Bloomberg, Investing.com</div>
+</div>
+<div>
+<div style="display:flex;align-items:center;gap:10px;margin-bottom:7px">
+<span style="display:inline-flex;align-items:center;height:18px;padding:0 9px;border-radius:4px;background:#1b82ce;font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff;white-space:nowrap">Corporate news</span>
+<span style="flex:1;height:3px;border-radius:2px;background:linear-gradient(90deg,#e9f3fb,#f7f8f9)"></span>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;font-size:9.5px;line-height:1.5;text-wrap:pretty">
+{{CORPNEWS_ITEMS}}
+
+
+</div>
+</div>
+</div>
+
+<div>
+<div style="display:flex;align-items:center;gap:10px;margin-bottom:7px">
+<span style="display:inline-flex;align-items:center;height:18px;padding:0 9px;border-radius:4px;background:#1b82ce;font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff;white-space:nowrap">Event calendar</span>
+<span style="flex:1;height:3px;border-radius:2px;background:linear-gradient(90deg,#e9f3fb,#f7f8f9)"></span>
+</div>
+<sc-raw-table style="width:100%;border-collapse:collapse;font-size:10px;white-space:nowrap">
+<sc-raw-thead>
+<sc-raw-tr style="text-align:left;background:#223062;font-size:8.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#ccd4ea">
+<sc-raw-th style="padding:4.5px 7px;width:80px">Date</sc-raw-th>
+<sc-raw-th style="padding:4.5px 7px">Company</sc-raw-th>
+<sc-raw-th style="padding:4.5px 7px">Event</sc-raw-th>
+</sc-raw-tr>
+</sc-raw-thead>
+<sc-raw-tbody>
+{{EVENT_ROWS}}
+
+
+
+
+
+
+<sc-raw-tr><sc-raw-td style="padding:5px 8px;color:#8a8f99">04-Aug-26</sc-raw-td><sc-raw-td style="padding:5px 8px;font-weight:600">Al Moammar Information Systems Co.</sc-raw-td><sc-raw-td style="padding:4px 8px">Earnings call</sc-raw-td></sc-raw-tr>
+</sc-raw-tbody>
+</sc-raw-table>
+<div style="margin-top:5px;font-size:8px;color:#8a8f99">Source: Argaam, Bloomberg</div>
+</div>
+
+<div style="margin-top:auto;padding-top:9px;border-top:2px solid #e9f3fb;display:flex;align-items:center;justify-content:space-between;gap:16px;font-size:8.5px;color:#8a8f99">
+<span style="font-weight:600;color:#4a527a">TAM Capital · Grow your wealth with TAM</span>
+<span>For information only · not investment advice</span>
+<span style="font-weight:700;color:#16669f">2 / 6</span>
+</div>
+
+</section>
+
+<section class="page" data-screen-label="Page 3" style="box-sizing:border-box;padding:30px 34px 22px;display:flex;flex-direction:column;gap:16px;background:#fff;color:#11151f;font-family:'Greycliff CF',system-ui,sans-serif;font-size:11px;line-height:1.45">
+
+<div style="display:flex;align-items:center;justify-content:space-between;gap:16px;margin:-30px -34px 0;padding:11px 34px;border-bottom:2px solid #7b3fd4">
+<div style="display:flex;align-items:center;gap:9px">
+<img src="{{ASSET_BASE}}/rpt_1.png" alt="" style="height:14px;width:auto;display:block">
+<span style="font-size:9.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:#223062;white-space:nowrap">Daily Market Watch</span>
+<span style="width:1px;height:10px;background:#cfd2d6"></span>
+<span style="font-size:9.5px;font-weight:500;color:#8a8f99;white-space:nowrap">{{DATE}}</span>
+</div>
+<span style="display:inline-flex;align-items:center;height:18px;padding:0 9px;border-radius:4px;background:#f2ebfd;font-size:8.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#6a2fc4;white-space:nowrap">Sectors &amp; movers</span>
+</div>
+
+<div>
+<div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+<span style="display:inline-flex;align-items:center;height:20px;padding:0 10px;border-radius:5px;background:#7b3fd4;font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff;white-space:nowrap">Sector performance YTD</span>
+<span style="flex:1;height:3px;border-radius:2px;background:linear-gradient(90deg,#f2ebfd,#f7f8f9)"></span>
+<span style="font-size:9px;font-weight:600;color:#8a8f99;white-space:nowrap">Top performers &amp; laggards</span>
+</div>
+<div style="display:flex;flex-direction:column;gap:7px;font-size:10px;font-variant-numeric:tabular-nums">
+{{SECTOR_BARS}}
+
+
+
+
+
+
+
+
+
+</div>
+</div>
+
+<div>
+<div style="display:flex;align-items:center;gap:10px;margin-bottom:11px">
+<span style="display:inline-flex;align-items:center;height:20px;padding:0 10px;border-radius:5px;background:#7b3fd4;font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff;white-space:nowrap">Market movers</span>
+<span style="flex:1;height:3px;border-radius:2px;background:linear-gradient(90deg,#f2ebfd,#f7f8f9)"></span>
+<span style="font-size:9px;font-weight:600;color:#8a8f99;white-space:nowrap">Forward P/E on 2026 estimates</span>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:18px 22px">
+
+<div>
+<div style="margin-bottom:5px;display:inline-flex;align-items:center;padding:3px 8px;border-radius:4px;background:#eaf7f1;font-size:8.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:#088a55">Top performers — sectors</div>
+<sc-raw-table style="width:100%;border-collapse:collapse;font-size:10px;font-variant-numeric:tabular-nums;white-space:nowrap">
+<sc-raw-thead><sc-raw-tr style="text-align:right;background:#223062;font-size:8px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#ccd4ea"><sc-raw-th style="padding:5px 7px;text-align:left">Sector</sc-raw-th><sc-raw-th style="padding:5px 7px">Close</sc-raw-th><sc-raw-th style="padding:5px 7px">%Δ</sc-raw-th><sc-raw-th style="padding:5px 7px">P/E</sc-raw-th><sc-raw-th style="padding:5px 7px">YTD</sc-raw-th></sc-raw-tr></sc-raw-thead>
+<sc-raw-tbody>
+{{TOPSECT_ROWS}}
+
+
+
+
+</sc-raw-tbody>
+</sc-raw-table>
+</div>
+
+<div>
+<div style="margin-bottom:5px;display:inline-flex;align-items:center;padding:3px 8px;border-radius:4px;background:#fdeef0;font-size:8.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:#c9333a">Top laggards — sectors</div>
+<sc-raw-table style="width:100%;border-collapse:collapse;font-size:10px;font-variant-numeric:tabular-nums;white-space:nowrap">
+<sc-raw-thead><sc-raw-tr style="text-align:right;background:#223062;font-size:8px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#ccd4ea"><sc-raw-th style="padding:5px 7px;text-align:left">Sector</sc-raw-th><sc-raw-th style="padding:5px 7px">Close</sc-raw-th><sc-raw-th style="padding:5px 7px">%Δ</sc-raw-th><sc-raw-th style="padding:5px 7px">P/E</sc-raw-th><sc-raw-th style="padding:5px 7px">YTD</sc-raw-th></sc-raw-tr></sc-raw-thead>
+<sc-raw-tbody>
+{{LAGSECT_ROWS}}
+
+
+
+
+</sc-raw-tbody>
+</sc-raw-table>
+</div>
+
+<div>
+<div style="margin-bottom:5px;display:inline-flex;align-items:center;padding:3px 8px;border-radius:4px;background:#eaf7f1;font-size:8.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:#088a55">Top performers — companies</div>
+<sc-raw-table style="width:100%;border-collapse:collapse;font-size:10px;font-variant-numeric:tabular-nums;white-space:nowrap">
+<sc-raw-thead><sc-raw-tr style="text-align:right;background:#223062;font-size:8px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#ccd4ea"><sc-raw-th style="padding:5px 7px;text-align:left">Company</sc-raw-th><sc-raw-th style="padding:5px 7px">Close</sc-raw-th><sc-raw-th style="padding:5px 7px">%Δ</sc-raw-th><sc-raw-th style="padding:5px 7px">Vol (mn)</sc-raw-th><sc-raw-th style="padding:5px 7px">Val (mn)</sc-raw-th></sc-raw-tr></sc-raw-thead>
+<sc-raw-tbody>
+{{TOPCO_ROWS}}
+
+
+
+
+</sc-raw-tbody>
+</sc-raw-table>
+</div>
+
+<div>
+<div style="margin-bottom:5px;display:inline-flex;align-items:center;padding:3px 8px;border-radius:4px;background:#fdeef0;font-size:8.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:#c9333a">Top laggards — companies</div>
+<sc-raw-table style="width:100%;border-collapse:collapse;font-size:10px;font-variant-numeric:tabular-nums;white-space:nowrap">
+<sc-raw-thead><sc-raw-tr style="text-align:right;background:#223062;font-size:8px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#ccd4ea"><sc-raw-th style="padding:5px 7px;text-align:left">Company</sc-raw-th><sc-raw-th style="padding:5px 7px">Close</sc-raw-th><sc-raw-th style="padding:5px 7px">%Δ</sc-raw-th><sc-raw-th style="padding:5px 7px">Vol (mn)</sc-raw-th><sc-raw-th style="padding:5px 7px">Val (mn)</sc-raw-th></sc-raw-tr></sc-raw-thead>
+<sc-raw-tbody>
+{{LAGCO_ROWS}}
+
+
+
+
+</sc-raw-tbody>
+</sc-raw-table>
+</div>
+
+<div>
+<div style="margin-bottom:5px;display:inline-flex;align-items:center;padding:3px 8px;border-radius:4px;background:#f2ebfd;font-size:8.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:#6a2fc4">Value leaders</div>
+<sc-raw-table style="width:100%;border-collapse:collapse;font-size:10px;font-variant-numeric:tabular-nums;white-space:nowrap">
+<sc-raw-thead><sc-raw-tr style="text-align:right;background:#223062;font-size:8px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#ccd4ea"><sc-raw-th style="padding:5px 7px;text-align:left">Company</sc-raw-th><sc-raw-th style="padding:5px 7px">Close</sc-raw-th><sc-raw-th style="padding:5px 7px">%Δ</sc-raw-th><sc-raw-th style="padding:5px 7px">Vol (mn)</sc-raw-th><sc-raw-th style="padding:5px 7px">Val (mn)</sc-raw-th></sc-raw-tr></sc-raw-thead>
+<sc-raw-tbody>
+{{VALLEAD_ROWS}}
+
+
+
+
+</sc-raw-tbody>
+</sc-raw-table>
+</div>
+
+<div>
+<div style="margin-bottom:5px;display:inline-flex;align-items:center;padding:3px 8px;border-radius:4px;background:#f2ebfd;font-size:8.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:#6a2fc4">Volume leaders</div>
+<sc-raw-table style="width:100%;border-collapse:collapse;font-size:10px;font-variant-numeric:tabular-nums;white-space:nowrap">
+<sc-raw-thead><sc-raw-tr style="text-align:right;background:#223062;font-size:8px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#ccd4ea"><sc-raw-th style="padding:5px 7px;text-align:left">Company</sc-raw-th><sc-raw-th style="padding:5px 7px">Close</sc-raw-th><sc-raw-th style="padding:5px 7px">%Δ</sc-raw-th><sc-raw-th style="padding:5px 7px">Vol (mn)</sc-raw-th><sc-raw-th style="padding:5px 7px">Val (mn)</sc-raw-th></sc-raw-tr></sc-raw-thead>
+<sc-raw-tbody>
+{{VOLLEAD_ROWS}}
+
+
+
+
+</sc-raw-tbody>
+</sc-raw-table>
+</div>
+
+</div>
+<div style="margin-top:8px;font-size:8.5px;color:#8a8f99">Forward P/E sourced from Bloomberg, based on 2026 earnings estimates. Source: Bloomberg, Tadawul</div>
+</div>
+
+<div style="margin-top:auto;padding-top:9px;border-top:2px solid #f2ebfd;display:flex;align-items:center;justify-content:space-between;gap:16px;font-size:8.5px;color:#8a8f99">
+<span style="font-weight:600;color:#4a527a">TAM Capital · Grow your wealth with TAM</span>
+<span>For information only · not investment advice</span>
+<span style="font-weight:700;color:#6a2fc4">3 / 6</span>
+</div>
+
+</section>
+
+<section class="page" data-screen-label="Page 4" style="box-sizing:border-box;padding:30px 34px 22px;display:flex;flex-direction:column;gap:16px;background:#fff;color:#11151f;font-family:'Greycliff CF',system-ui,sans-serif;font-size:11px;line-height:1.45">
+
+<div style="display:flex;align-items:center;justify-content:space-between;gap:16px;margin:-30px -34px 0;padding:11px 34px;border-bottom:2px solid #2a9d96">
+<div style="display:flex;align-items:center;gap:9px">
+<img src="{{ASSET_BASE}}/rpt_1.png" alt="" style="height:14px;width:auto;display:block">
+<span style="font-size:9.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:#223062;white-space:nowrap">Daily Market Watch</span>
+<span style="width:1px;height:10px;background:#cfd2d6"></span>
+<span style="font-size:9.5px;font-weight:500;color:#8a8f99;white-space:nowrap">{{DATE}}</span>
+</div>
+<span style="display:inline-flex;align-items:center;height:18px;padding:0 9px;border-radius:4px;background:#e7f6f5;font-size:8.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#1f7d77;white-space:nowrap">Global data snapshot</span>
+</div>
+
+<div style="display:flex;align-items:center;gap:10px">
+<span style="display:inline-flex;align-items:center;height:20px;padding:0 10px;border-radius:5px;background:#2a9d96;font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff;white-space:nowrap">Global data snapshot</span>
+<span style="flex:1;height:3px;border-radius:2px;background:linear-gradient(90deg,#e7f6f5,#f7f8f9)"></span>
+<span style="font-size:9px;font-weight:600;color:#8a8f99;white-space:nowrap">Close as at {{DATE_PREV}}</span>
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:18px 22px;align-items:start">
+
+<div>
+<div style="margin-bottom:5px;display:inline-flex;align-items:center;padding:3px 8px;border-radius:4px;background:#e7f6f5;font-size:8.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:#1f7d77">International markets</div>
+<sc-raw-table style="width:100%;border-collapse:collapse;font-size:10px;font-variant-numeric:tabular-nums;white-space:nowrap">
+<sc-raw-thead><sc-raw-tr style="text-align:right;background:#223062;font-size:8px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#ccd4ea"><sc-raw-th style="padding:6px 7px;text-align:left">Index</sc-raw-th><sc-raw-th style="padding:6px 7px">Last close</sc-raw-th><sc-raw-th style="padding:6px 7px">%Δ</sc-raw-th><sc-raw-th style="padding:6px 7px">Fwd P/E</sc-raw-th><sc-raw-th style="padding:6px 7px">YTD %Δ</sc-raw-th></sc-raw-tr></sc-raw-thead>
+<sc-raw-tbody>
+{{INTL_ROWS}}
+
+
+
+
+
+
+
+
+
+</sc-raw-tbody>
+</sc-raw-table>
+</div>
+
+<div>
+<div style="margin-bottom:5px;display:inline-flex;align-items:center;padding:3px 8px;border-radius:4px;background:#e7f6f5;font-size:8.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:#1f7d77">Regional markets</div>
+<sc-raw-table style="width:100%;border-collapse:collapse;font-size:10px;font-variant-numeric:tabular-nums;white-space:nowrap">
+<sc-raw-thead><sc-raw-tr style="text-align:right;background:#223062;font-size:8px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#ccd4ea"><sc-raw-th style="padding:6px 7px;text-align:left">Index</sc-raw-th><sc-raw-th style="padding:6px 7px">Last close</sc-raw-th><sc-raw-th style="padding:6px 7px">%Δ</sc-raw-th><sc-raw-th style="padding:6px 7px">Fwd P/E</sc-raw-th><sc-raw-th style="padding:6px 7px">YTD %Δ</sc-raw-th></sc-raw-tr></sc-raw-thead>
+<sc-raw-tbody>
+{{REGIONAL_ROWS}}
+
+
+
+
+
+
+
+
+
+</sc-raw-tbody>
+</sc-raw-table>
+</div>
+
+<div>
+<div style="margin-bottom:5px;display:inline-flex;align-items:center;padding:3px 8px;border-radius:4px;background:#e7f6f5;font-size:8.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:#1f7d77">Commodity prices</div>
+<sc-raw-table style="width:100%;border-collapse:collapse;font-size:10px;font-variant-numeric:tabular-nums;white-space:nowrap">
+<sc-raw-thead><sc-raw-tr style="text-align:right;background:#223062;font-size:8px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#ccd4ea"><sc-raw-th style="padding:6px 7px;text-align:left">Commodity</sc-raw-th><sc-raw-th style="padding:6px 7px">Last close</sc-raw-th><sc-raw-th style="padding:6px 7px">%Δ</sc-raw-th><sc-raw-th style="padding:6px 7px">MTD %Δ</sc-raw-th><sc-raw-th style="padding:6px 7px">YTD %Δ</sc-raw-th></sc-raw-tr></sc-raw-thead>
+<sc-raw-tbody>
+{{COMMOD_ROWS}}
+
+
+
+
+
+
+
+
+
+
+
+</sc-raw-tbody>
+</sc-raw-table>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:16px">
+<div>
+<div style="margin-bottom:5px;display:inline-flex;align-items:center;padding:3px 8px;border-radius:4px;background:#e7f6f5;font-size:8.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:#1f7d77">Interest rates</div>
+<sc-raw-table style="width:100%;border-collapse:collapse;font-size:10px;font-variant-numeric:tabular-nums;white-space:nowrap">
+<sc-raw-thead><sc-raw-tr style="text-align:right;background:#223062;font-size:8px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#ccd4ea"><sc-raw-th style="padding:6px 7px;text-align:left">Rate</sc-raw-th><sc-raw-th style="padding:6px 7px">Last close</sc-raw-th><sc-raw-th style="padding:6px 7px">DoD Δ</sc-raw-th><sc-raw-th style="padding:6px 7px">MTD Δ</sc-raw-th><sc-raw-th style="padding:6px 7px">YTD Δ</sc-raw-th></sc-raw-tr></sc-raw-thead>
+<sc-raw-tbody>
+{{RATES_ROWS}}
+
+
+
+</sc-raw-tbody>
+</sc-raw-table>
+</div>
+
+<div>
+<div style="margin-bottom:5px;display:inline-flex;align-items:center;padding:3px 8px;border-radius:4px;background:#e7f6f5;font-size:8.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:#1f7d77">Historical Tadawul P/E &amp; dividend yield</div>
+<image-slot id="dmw-pe-dy" shape="rounded" radius="12" fit="contain" placeholder="Drop historical P/E &amp; DY chart export" style="width:100%;height:196px"></image-slot>
+</div>
+
+</div>
+
+</div>
+<div style="font-size:8.5px;color:#8a8f99">Forward P/E sourced from Bloomberg, based on 2026 earnings estimates. Source: Bloomberg</div>
+
+<div style="margin-top:auto;padding-top:9px;border-top:2px solid #e7f6f5;display:flex;align-items:center;justify-content:space-between;gap:16px;font-size:8.5px;color:#8a8f99">
+<span style="font-weight:600;color:#4a527a">TAM Capital · Grow your wealth with TAM</span>
+<span>For information only · not investment advice</span>
+<span style="font-weight:700;color:#1f7d77">4 / 6</span>
+</div>
+
+</section>
+
+<section class="page" data-screen-label="Page 5" style="box-sizing:border-box;padding:30px 34px 22px;display:flex;flex-direction:column;gap:16px;background:#fff;color:#11151f;font-family:'Greycliff CF',system-ui,sans-serif;font-size:11px;line-height:1.45">
+
+<div style="display:flex;align-items:center;justify-content:space-between;gap:16px;margin:-30px -34px 0;padding:11px 34px;border-bottom:2px solid #3d5199">
+<div style="display:flex;align-items:center;gap:9px">
+<img src="{{ASSET_BASE}}/rpt_1.png" alt="" style="height:14px;width:auto;display:block">
+<span style="font-size:9.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:#223062;white-space:nowrap">Daily Market Watch</span>
+<span style="width:1px;height:10px;background:#cfd2d6"></span>
+<span style="font-size:9.5px;font-weight:500;color:#8a8f99;white-space:nowrap">{{DATE}}</span>
+</div>
+<span style="display:inline-flex;align-items:center;height:18px;padding:0 9px;border-radius:4px;background:#eceff8;font-size:8.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#223062;white-space:nowrap">Technical view</span>
+</div>
+
+<div style="display:flex;align-items:baseline;justify-content:space-between;gap:18px">
+<div style="display:flex;align-items:center;gap:10px">
+<span style="width:5px;height:17px;flex:0 0 auto;background:linear-gradient(180deg,#3d5199,#223062);border-radius:2px"></span>
+<span style="font-size:15px;font-weight:800;letter-spacing:-.01em;color:#223062;white-space:nowrap">TASI technical view</span>
+</div>
+<div style="display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 12px;border-radius:999px;background:#eaf7f1;border:1px solid #7fe3b6;font-size:10.5px;font-weight:700;color:#088a55;white-space:nowrap">Final test of resistance</div>
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 232px;gap:18px;align-items:start">
+
+<image-slot id="dmw-tasi-tech" shape="rounded" radius="12" fit="contain" placeholder="Drop TASI daily candlestick chart with channel, DEMAs and RSI" style="width:100%;height:262px"></image-slot>
+
+<div style="padding:12px 14px;border-radius:14px;background:#f4f5f6;border:1px solid #dfe2e8">
+<div style="margin-bottom:6px;display:inline-flex;align-items:center;padding:3px 8px;border-radius:4px;background:#eceff8;font-size:8.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:#223062">Market summary</div>
+<div style="font-size:10px;font-variant-numeric:tabular-nums">
+<div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:4.5px 0;border-bottom:1px solid #e5e6e7"><span style="color:#4a527a">Close</span><b style="font-weight:700">{{TASI_CLOSE}}</b></div>
+<div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:4.5px 0;border-bottom:1px solid #e5e6e7"><span style="color:#4a527a">Intraday H/L</span><b style="font-weight:700">{{TASI_HL}}</b></div>
+<div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:4.5px 0;border-bottom:1px solid #e5e6e7"><span style="color:#4a527a">Change (pts)</span><b style="font-weight:700;color:#0bad6b">{{TASI_PTS}}</b></div>
+<div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:4.5px 0;border-bottom:1px solid #e5e6e7"><span style="color:#4a527a">Change (%)</span><b style="font-weight:700;color:#0bad6b">{{TASI_DOD}}</b></div>
+<div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:4.5px 0;border-bottom:1px solid #e5e6e7"><span style="color:#4a527a">52W H/L</span><b style="font-weight:700">{{TASI_52W}}</b></div>
+<div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:4.5px 0;border-bottom:1px solid #e5e6e7"><span style="color:#4a527a">1Y index change</span><b style="font-weight:700;color:#e5484d">{{TASI_1Y}}</b></div>
+<div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:4.5px 0;border-bottom:1px solid #e5e6e7"><span style="color:#4a527a">Volume (mn)</span><b style="font-weight:700">{{TASI_VOL}}</b></div>
+<div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:4.5px 0"><span style="color:#4a527a">Value (SAR mn)</span><b style="font-weight:700">{{VAL_TRADED_MN}}</b></div>
+</div>
+</div>
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr 1.5fr;gap:18px;align-items:start">
+<div>
+<div style="margin-bottom:5px;display:inline-flex;align-items:center;padding:3px 8px;border-radius:4px;background:#eceff8;font-size:8.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:#223062">Intraday index levels</div>
+<div style="font-size:10px;font-variant-numeric:tabular-nums">
+<div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:4.5px 8px;margin-bottom:2px;border-radius:3px;background:#fdeef0"><span style="font-weight:600;color:#c9333a">Resistance 3</span><b style="font-weight:700">{{TECH_R3}}</b></div>
+<div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:4.5px 8px;margin-bottom:2px;border-radius:3px;background:#fdeef0"><span style="font-weight:600;color:#c9333a">Resistance 2</span><b style="font-weight:700">{{TECH_R2}}</b></div>
+<div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:4.5px 8px;margin-bottom:2px;border-radius:3px;background:#fdeef0"><span style="font-weight:600;color:#c9333a">Resistance 1</span><b style="font-weight:700">{{TECH_R1}}</b></div>
+<div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:5.5px 8px;margin:3px 0;border-radius:3px;background:#223062"><span style="font-weight:700;color:#fff">Pivot</span><b style="font-weight:800;color:#fff">{{TECH_PIVOT}}</b></div>
+<div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:4.5px 8px;margin-bottom:2px;border-radius:3px;background:#eaf7f1"><span style="font-weight:600;color:#088a55">Support 1</span><b style="font-weight:700">{{TECH_S1}}</b></div>
+<div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:4.5px 8px;margin-bottom:2px;border-radius:3px;background:#eaf7f1"><span style="font-weight:600;color:#088a55">Support 2</span><b style="font-weight:700">{{TECH_S2}}</b></div>
+<div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:4.5px 8px;border-radius:3px;background:#eaf7f1"><span style="font-weight:600;color:#088a55">Support 3</span><b style="font-weight:700">{{TECH_S3}}</b></div>
+</div>
+</div>
+<div>
+<div style="margin-bottom:5px;display:inline-flex;align-items:center;padding:3px 8px;border-radius:4px;background:#eceff8;font-size:8.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:#223062">Indicators</div>
+<div style="font-size:10px;font-variant-numeric:tabular-nums">
+<div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:4.5px 0;border-bottom:1px solid #eef0f3"><span style="color:#4a527a">RSI (14d)</span><b style="font-weight:700">{{TECH_RSI}}</b></div>
+<div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:4.5px 0;border-bottom:1px solid #eef0f3"><span style="color:#4a527a">55-DEMA</span><b style="font-weight:700">{{TECH_D55}}</b></div>
+<div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:4.5px 0;border-bottom:1px solid #eef0f3"><span style="color:#4a527a">90-DEMA</span><b style="font-weight:700">{{TECH_D90}}</b></div>
+<div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:4.5px 0"><span style="color:#4a527a">200-DEMA</span><b style="font-weight:700">{{TECH_D200}}</b></div>
+</div>
+</div>
+<div style="padding:12px 14px;border-radius:14px;background:#d8f6e8;border:1px solid #7fe3b6">
+<div style="margin-bottom:5px;font-size:9px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:#088a55">Outlook</div>
+<div style="font-size:10.5px;line-height:1.6;color:#11151f;text-wrap:pretty">{{TECH_OUTLOOK}}</div>
+</div>
+</div>
+
+<div>
+<div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+<span style="display:inline-flex;align-items:center;height:20px;padding:0 10px;border-radius:5px;background:#3d5199;font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff;white-space:nowrap">Market brief</span>
+<span style="flex:1;height:3px;border-radius:2px;background:linear-gradient(90deg,#eceff8,#f7f8f9)"></span>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;font-size:10.5px;line-height:1.6;text-wrap:pretty">
+<div>{{TECH_BRIEF_1}}</div>
+<div>On the downside, the index has regained the 10,652–10,779 congestion range as support. On momentum, the RSI has recovered from a minor oversold state at 28.04 and faces a test of resistance at 56.15. Holding above 56.15 would signal a build-up in momentum that would push levels above the shorter averages.</div>
+</div>
+</div>
+
+
+<div>
+<div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+<span style="display:inline-flex;align-items:center;height:20px;padding:0 10px;border-radius:5px;background:#3d5199;font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff;white-space:nowrap">Intraday trading ideas</span>
+<span style="flex:1;height:3px;border-radius:2px;background:linear-gradient(90deg,#eceff8,#f7f8f9)"></span>
+<span style="font-size:9px;font-weight:600;color:#8a8f99;white-space:nowrap">TP target price · SL stop loss · B buy</span>
+</div>
+<sc-raw-table style="width:100%;border-collapse:collapse;font-size:9px;font-variant-numeric:tabular-nums;white-space:nowrap;table-layout:fixed">
+<sc-raw-thead>
+<sc-raw-tr style="text-align:right;background:#223062;font-size:8px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#ccd4ea">
+<sc-raw-th style="padding:5px 4px;text-align:left;width:88px">Name</sc-raw-th>
+<sc-raw-th style="padding:5px 4px">Price</sc-raw-th>
+<sc-raw-th style="padding:5px 4px">Rec</sc-raw-th>
+<sc-raw-th style="padding:5px 4px;width:78px">Entry range</sc-raw-th>
+<sc-raw-th style="padding:5px 4px">TP1</sc-raw-th>
+<sc-raw-th style="padding:5px 4px">TP2</sc-raw-th>
+<sc-raw-th style="padding:5px 4px">SL</sc-raw-th>
+<sc-raw-th style="padding:5px 4px">S1</sc-raw-th>
+<sc-raw-th style="padding:5px 4px">S2</sc-raw-th>
+<sc-raw-th style="padding:5px 4px">R1</sc-raw-th>
+<sc-raw-th style="padding:5px 4px">R2</sc-raw-th>
+<sc-raw-th style="padding:5px 4px">RSI</sc-raw-th>
+<sc-raw-th style="padding:5px 4px">21</sc-raw-th>
+<sc-raw-th style="padding:5px 4px">55</sc-raw-th>
+<sc-raw-th style="padding:5px 4px">90</sc-raw-th>
+</sc-raw-tr>
+</sc-raw-thead>
+<sc-raw-tbody>
+{{IDEAS_ROWS}}
+
+
+</sc-raw-tbody>
+</sc-raw-table>
+</div>
+
+
+<div style="margin-top:auto;padding-top:9px;border-top:2px solid #eceff8;display:flex;align-items:center;justify-content:space-between;gap:16px;font-size:8.5px;color:#8a8f99">
+<span style="font-weight:600;color:#4a527a">TAM Capital · Grow your wealth with TAM</span>
+<span>For information only · not investment advice</span>
+<span style="font-weight:700;color:#223062">5 / 6</span>
+</div>
+
+</section>
+
+<section class="page" data-screen-label="Page 6" style="box-sizing:border-box;padding:30px 34px 22px;display:flex;flex-direction:column;gap:16px;background:#fff;color:#11151f;font-family:'Greycliff CF',system-ui,sans-serif;font-size:11px;line-height:1.45">
+
+<div style="display:flex;align-items:center;justify-content:space-between;gap:16px;margin:-30px -34px 0;padding:11px 34px;border-bottom:2px solid #0bad6b">
+<div style="display:flex;align-items:center;gap:9px">
+<img src="{{ASSET_BASE}}/rpt_1.png" alt="" style="height:14px;width:auto;display:block">
+<span style="font-size:9.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:#223062;white-space:nowrap">Daily Market Watch</span>
+<span style="width:1px;height:10px;background:#cfd2d6"></span>
+<span style="font-size:9.5px;font-weight:500;color:#8a8f99;white-space:nowrap">{{DATE}}</span>
+</div>
+<span style="display:inline-flex;align-items:center;height:18px;padding:0 9px;border-radius:4px;background:#eaf7f1;font-size:8.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#088a55;white-space:nowrap">Stock of the day</span>
+</div>
+
+<div style="display:flex;align-items:flex-end;justify-content:space-between;gap:18px">
+<div>
+<div style="display:flex;align-items:center;gap:10px;margin-bottom:6px">
+<span style="display:inline-flex;align-items:center;height:20px;padding:0 10px;border-radius:5px;background:#0bad6b;font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff;white-space:nowrap">Stock of the day</span>
+</div>
+<div style="font-size:19px;font-weight:800;letter-spacing:-.015em;color:#223062">{{STOCK_NAME}}. <span style="font-weight:600;color:#8a8f99">{{STOCK_CODE_P}}</span></div>
+</div>
+<div style="display:flex;align-items:flex-end;gap:12px">
+<div style="font-size:28px;font-weight:800;line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums">{{STOCK_PRICE}}</div>
+<div style="display:inline-flex;align-items:center;gap:6px;height:23px;padding:0 10px;border-radius:999px;background:#d8f6e8;border:1px solid #7fe3b6;font-size:12px;font-weight:700;color:#088a55;white-space:nowrap"><span style="width:0;height:0;border-left:.3em solid transparent;border-right:.3em solid transparent;border-bottom:.44em solid currentColor"></span>{{STOCK_CHG}}</div>
+</div>
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 232px;gap:18px;align-items:start">
+
+<image-slot id="dmw-sotd" shape="rounded" radius="12" fit="contain" placeholder="Drop Jabal Omar daily chart with retracement levels and DEMAs" style="width:100%;height:258px"></image-slot>
+
+<div style="padding:12px 14px;border-radius:14px;background:#f4f5f6;border:1px solid #dfe2e8">
+<div style="margin-bottom:6px;display:inline-flex;align-items:center;padding:3px 8px;border-radius:4px;background:#eaf7f1;font-size:8.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:#088a55">Stock data</div>
+<div style="font-size:10px;font-variant-numeric:tabular-nums">
+<div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:4.5px 0;border-bottom:1px solid #e5e6e7"><span style="color:#4a527a">52W H/L</span><b style="font-weight:700">{{STOCK_52W}}</b></div>
+<div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:4.5px 0;border-bottom:1px solid #e5e6e7"><span style="color:#4a527a">1Y price change</span><b style="font-weight:700;color:#e5484d">{{STOCK_1Y}}</b></div>
+<div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:4.5px 0;border-bottom:1px solid #e5e6e7"><span style="color:#4a527a">Volume (000)</span><b style="font-weight:700">{{STOCK_VOL}}</b></div>
+<div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:4.5px 0;border-bottom:1px solid #e5e6e7"><span style="color:#4a527a">3M ADTV (SAR 000)</span><b style="font-weight:700">{{STOCK_ADTV}}</b></div>
+<div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:4.5px 0;border-bottom:1px solid #e5e6e7"><span style="color:#4a527a">Bloomberg</span><b style="font-weight:700">{{STOCK_BBG}}</b></div>
+<div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:4.5px 0"><span style="color:#4a527a">Reuters</span><b style="font-weight:700">{{STOCK_REUTERS}}</b></div>
+</div>
+</div>
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr 1.5fr;gap:18px;align-items:start">
+<div>
+<div style="margin-bottom:5px;display:inline-flex;align-items:center;padding:3px 8px;border-radius:4px;background:#eaf7f1;font-size:8.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:#088a55">Price levels</div>
+<div style="font-size:10px;font-variant-numeric:tabular-nums">
+<div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:4.5px 8px;margin-bottom:2px;border-radius:3px;background:#fdeef0"><span style="font-weight:600;color:#c9333a">Resistance 3</span><b style="font-weight:700">{{STOCK_R3}}</b></div>
+<div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:4.5px 8px;margin-bottom:2px;border-radius:3px;background:#fdeef0"><span style="font-weight:600;color:#c9333a">Resistance 2</span><b style="font-weight:700">{{STOCK_R2}}</b></div>
+<div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:4.5px 8px;margin-bottom:2px;border-radius:3px;background:#fdeef0"><span style="font-weight:600;color:#c9333a">Resistance 1</span><b style="font-weight:700">{{STOCK_R1}}</b></div>
+<div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:4.5px 8px;margin-bottom:2px;border-radius:3px;background:#eaf7f1"><span style="font-weight:600;color:#088a55">Support 1</span><b style="font-weight:700">{{STOCK_S1}}</b></div>
+<div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:4.5px 8px;margin-bottom:2px;border-radius:3px;background:#eaf7f1"><span style="font-weight:600;color:#088a55">Support 2</span><b style="font-weight:700">{{STOCK_S2}}</b></div>
+<div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:4.5px 8px;border-radius:3px;background:#eaf7f1"><span style="font-weight:600;color:#088a55">Support 3</span><b style="font-weight:700">{{STOCK_S3}}</b></div>
+</div>
+</div>
+<div>
+<div style="margin-bottom:5px;display:inline-flex;align-items:center;padding:3px 8px;border-radius:4px;background:#eaf7f1;font-size:8.5px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:#088a55">Indicators</div>
+<div style="font-size:10px;font-variant-numeric:tabular-nums">
+<div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:4.5px 0;border-bottom:1px solid #eef0f3"><span style="color:#4a527a">RSI (14d)</span><b style="font-weight:700">{{STOCK_RSI}}</b></div>
+<div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:4.5px 0;border-bottom:1px solid #eef0f3"><span style="color:#4a527a">55-DEMA</span><b style="font-weight:700">{{STOCK_D55}}</b></div>
+<div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:4.5px 0;border-bottom:1px solid #eef0f3"><span style="color:#4a527a">90-DEMA</span><b style="font-weight:700">{{STOCK_D90}}</b></div>
+<div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:4.5px 0"><span style="color:#4a527a">200-DEMA</span><b style="font-weight:700">{{STOCK_D200}}</b></div>
+</div>
+</div>
+<div style="padding:12px 14px;border-radius:14px;background:#d8f6e8;border:1px solid #7fe3b6">
+<div style="margin-bottom:5px;font-size:9px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:#088a55">Strategy</div>
+<div style="font-size:10.5px;line-height:1.6;text-wrap:pretty">{{STOCK_STRATEGY}}</div>
+</div>
+</div>
+
+<div>
+<div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+<span style="display:inline-flex;align-items:center;height:20px;padding:0 10px;border-radius:5px;background:#0bad6b;font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff;white-space:nowrap">Stock brief</span>
+<span style="flex:1;height:3px;border-radius:2px;background:linear-gradient(90deg,#eaf7f1,#f7f8f9)"></span>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;font-size:10.5px;line-height:1.6;text-wrap:pretty">
+<div>{{STOCK_BRIEF_1}}</div>
+<div>The decline from 28.40 to 13.88 is under recovery, with yesterday's close above the 23.6% retracement at 17.31. The current target on a break above 17.00 is 19.43. Support would look to develop around 17.00–17.31. Risk is on a break below 15.74.</div>
+</div>
+</div>
+
+<div style="margin-top:auto;padding:15px 17px;border-radius:14px;background:linear-gradient(140deg,#11193a 0%,#223062 70%,#2d3f7d 100%);color:#fff">
+<div style="margin-bottom:7px;font-size:9px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:#15d180">Disclaimer</div>
+<div style="font-size:8.5px;line-height:1.65;color:#c3cade;text-wrap:pretty">This document has been prepared by TAM Capital (Tam Financial). The information in it was gathered from sources including Bloomberg, Reuters, SAMA, IMF, IEA, OPEC and Tadawul, alongside other national and international agencies. TAM Capital takes reasonable care to source data and information from providers it considers reliable, but gives no guarantee, and makes no representation whether express or implied, as to the accuracy or completeness of anything contained in this report. The report is for information only. It does not take account of the objectives, financial situation or needs of any particular person, it does not constitute personal investment advice, and it is not a recommendation or offer to buy or sell any security or investment product. Views and figures reflect the date of publication and may change without notice. TAM Capital accepts no liability for any direct or indirect consequence arising from use of this document. TAM Capital is licensed by the Capital Market Authority of the Kingdom of Saudi Arabia under licence number [licence no.], with its head office in Riyadh, Kingdom of Saudi Arabia.</div>
+<div style="margin-top:11px;padding-top:10px;border-top:1px solid rgba(255,255,255,.16);display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:9px;font-weight:600;color:#fff">
+<span style="display:flex;align-items:center;gap:8px"><img src="{{ASSET_BASE}}/logo_2.png" alt="TAM Capital" style="height:15px;width:auto;display:block"></span>
+<span style="color:#c3cade">800 124 0557 · +966 · Info@tamcapital.sa · Tamcapital.sa</span>
+</div>
+</div>
+
+<div style="padding-top:9px;border-top:2px solid #eaf7f1;display:flex;align-items:center;justify-content:space-between;gap:16px;font-size:8.5px;color:#8a8f99">
+<span style="font-weight:600;color:#4a527a">TAM Capital · Grow your wealth with TAM</span>
+<span>For information only · not investment advice</span>
+<span style="font-weight:700;color:#088a55">6 / 6</span>
+</div>
+
+</section>
+
+</doc-page>
+</body></html>
